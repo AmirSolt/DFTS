@@ -1,3 +1,8 @@
 export function truncate(text: string, size: number, trailing:string=" ...") {
-    return text.substring(0, size) + trailing;
+    let r = text.substring(0, size)
+    if(r.length<text.length){
+        r = r+trailing;
+    }
+
+    return  r;
 }

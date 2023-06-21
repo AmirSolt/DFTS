@@ -31,7 +31,7 @@
 		</header>
 	</svelte:fragment>
 	
-	<Toast position='t' background='variant-filled-error' />
+	<Toast position='t'  background='variant-filled-error' />
 	<div class="flex justify-center w-full h-full">
 		<div class="max-w-7xl p-2 md:p-4 w-full h-full">
 			

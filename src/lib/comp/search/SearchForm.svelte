@@ -9,8 +9,16 @@
         
     export let searchTerm:string = '';
     export let category:string = "" ;
+    export let isLoading:boolean = false;
     let form;
-    let isLoading:boolean = false;
+
+
+    function onSubmit(){
+        navigator.vibrate(1)
+        isLoading=true;
+    }
+
+    
 
 </script>
 
@@ -27,12 +35,12 @@
 
             <div class="flex flex-row justify-between items-center w-full gap-2">
                 <RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary" >
-                    <RadioItem bind:group={category} name="category" value={Category.movie} on:change={() => {if(searchTerm.length>0) form.requestSubmit()}}>Movie</RadioItem>
-                    <RadioItem bind:group={category} name="category" value={Category.game} on:change={() => {if(searchTerm.length>0) form.requestSubmit()}}>Game</RadioItem>
-                    <RadioItem bind:group={category} name="category" value={Category.show} on:change={() => {if(searchTerm.length>0) form.requestSubmit()}}>TV</RadioItem>
+                    <RadioItem bind:group={category} name="category" value={Category.movie}>Movie</RadioItem>
+                    <RadioItem bind:group={category} name="category" value={Category.game}>Game</RadioItem>
+                    <RadioItem bind:group={category} name="category" value={Category.show}>TV</RadioItem>
                 </RadioGroup>
 
-                <button  class="btn w-1/2 variant-filled-primary" disabled="{searchTerm.length===0}" ><Search color={"#f9f9f9"} /></button>
+                <button  class="btn w-1/2 variant-filled-primary" disabled="{searchTerm.length===0}"  on:click={onSubmit}><Search color={"#f9f9f9"} /></button>
             </div>
         </div>
     </form>
@@ -40,6 +48,8 @@
 
 
 {#if isLoading}
+
+    
 
 
     <LoadingContainer >
