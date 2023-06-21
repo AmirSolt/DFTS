@@ -5,7 +5,6 @@ import { Category } from '$lib/utils/config.js';
 
 export const load = async ({params, url}) => {
     const {searchTerm} = params;
-    console.log(url)
     let category = url.searchParams.get('category');
 
     if(category===null)

@@ -13,9 +13,9 @@
 </script>
 
 <svelte:head>
-	<title>DFTS</title>
-	<meta name="description" content="Search any product and generate a comparison table using AI. Our innovative platform empowers you to generate comprehensive and insightful comparison tables, providing you with a side-by-side analysis of key features, specifications, and more.">
-	<meta name="keywords" content="Mapyan, product comparison, AI-powered comparison tables, Dynamic product comparisons, Smart shopping tool, Online shopping assistant, price comparison, Customer reviews analysis, Product feature comparison, Effortless product research,">
+	<title>DFTF - Describe it to Find it </title>
+	<meta name="description" content="Describe any movie, game and tv show to find it. Using a full text search we can find your piece of media from our 100000 movies, games and tv shows.">
+	<meta name="keywords" content="DFTF, Find movie, Find show, Find game, AI-powered, comparison, movie search, Search engine, AI search, movie, tv, video game, show, find,search">
 	<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 
 </svelte:head>

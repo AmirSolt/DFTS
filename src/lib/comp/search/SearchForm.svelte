@@ -22,17 +22,17 @@
         <div class="flex flex-col justify-center items-end w-full max-w-2xl gap-2">
             <!-- <input type="hidden" name="category" value="{category}" />  -->
             <!-- <input class="input ps-6 text-xl rounded-e-none" type="text" placeholder="Search..." bind:value={searchTerm} autocomplete="off" /> -->
-            <textarea class="textarea w-full" rows="6" placeholder="Search..." bind:value={searchTerm} autocomplete="off" />
+            <textarea class="textarea w-full" rows="6" placeholder="Describe what you're looking for..." bind:value={searchTerm} autocomplete="off" />
 
 
             <div class="flex flex-row justify-between items-center w-full gap-2">
                 <RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary" >
-                    <RadioItem bind:group={category} name="category" value={Category.movie} on:change={() => form.requestSubmit()}>Movie</RadioItem>
-                    <RadioItem bind:group={category} name="category" value={Category.game} on:change={() => form.requestSubmit()}>Game</RadioItem>
-                    <RadioItem bind:group={category} name="category" value={Category.show} on:change={() => form.requestSubmit()}>TV</RadioItem>
+                    <RadioItem bind:group={category} name="category" value={Category.movie} on:change={() => {if(searchTerm.length>0) form.requestSubmit()}}>Movie</RadioItem>
+                    <RadioItem bind:group={category} name="category" value={Category.game} on:change={() => {if(searchTerm.length>0) form.requestSubmit()}}>Game</RadioItem>
+                    <RadioItem bind:group={category} name="category" value={Category.show} on:change={() => {if(searchTerm.length>0) form.requestSubmit()}}>TV</RadioItem>
                 </RadioGroup>
 
-                <button  class="btn w-1/2 variant-filled-primary" ><Search color={"#f9f9f9"} /></button>
+                <button  class="btn w-1/2 variant-filled-primary" disabled="{searchTerm.length===0}" ><Search color={"#f9f9f9"} /></button>
             </div>
         </div>
     </form>
