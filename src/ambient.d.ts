@@ -7,7 +7,8 @@
 interface Product {
 	image_url: string
 	name: string,
-	category:string
+	category:string,
+	similarity:number
 }
 
 

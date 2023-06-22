@@ -14,7 +14,7 @@
 
 
     function onSubmit(){
-        navigator.vibrate(1)
+        navigator.vibrate(50)
         isLoading=true;
     }
 
@@ -35,8 +35,8 @@
 
             <div class="flex flex-row justify-between items-center w-full gap-2">
                 <RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary" >
-                    <RadioItem bind:group={category} name="category" value={Category.movie}>Movie</RadioItem>
                     <RadioItem bind:group={category} name="category" value={Category.game}>Game</RadioItem>
+                    <RadioItem bind:group={category} name="category" value={Category.movie}>Movie</RadioItem>
                     <RadioItem bind:group={category} name="category" value={Category.show}>TV</RadioItem>
                 </RadioGroup>
 

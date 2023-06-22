@@ -12,7 +12,7 @@
 			<a class="flex justify-center items-center gap-2 text-xl" href="/">
 				<img class="w-10 h-10" src="/logo.svg" alt="Logo">
 				<h1>
-					DFTF
+					DFTF.io
 				</h1> 
 			</a>
 			

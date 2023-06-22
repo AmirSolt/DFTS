@@ -9,13 +9,11 @@
 			</h1>
 			<br>
 			<p class="text-3xl">
-				Describe it to find it.
+				With this cutting edge search engine 
+				<br>
+				you can find any item, by simply describing it.
 			</p>
-			<br>
-			<br>
-			<p class="text-xl">
-				DFTF 2023
-			</p>
+			
 		</div>
 		
 		<!-- <div class="w-50 h-50 md:w-72 md:h-72">

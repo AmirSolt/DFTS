@@ -47,7 +47,7 @@
 				<div >
 					<button 
 					use:copy={product.name} 
-					on:click={()=>navigator.vibrate(1)} 
+					on:click={()=>navigator.vibrate(50)} 
 					class="text-start text-base focus:text-tertiary-600 A Plague Tale: Requiem"
 					>{truncate(product.name, 34)}</button>
 				</div>
@@ -57,9 +57,10 @@
 			<div class="flex justify-between items-center w-full">
 				<!-- Category -->
 				<div >
+					<small class="text-sm">Confidence: {product.similarity.toFixed(2)}</small>
 					<small class="text-sm">{product.category}</small>
 				</div>
-				<a href="https://www.google.com/search?q={product.name}" rel=”noopener” target="_blank">
+				<a href="https://www.google.com/search?q={encodeURIComponent(product.name+" "+product.category)}" rel=”noopener” target="_blank">
 					<div class="flex justify-center items-center gap-1 text-primary-500">
 						Google it 
 						<MoveRight />

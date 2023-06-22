@@ -52,5 +52,8 @@
             Thank you for visiting our website! We want to be transparent with you about the nature of our website and how we monetize it through affiliate marketing.
           </span>
       </div> -->
+        <p class="text-xl">
+            Made in 2023
+        </p>
     </div>
 </div>
