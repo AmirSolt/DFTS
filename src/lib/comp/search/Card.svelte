@@ -30,7 +30,6 @@
 					class="max-w-full max-h-full rounded-lg"
 					src={product.image_url}
 					alt="Thumbnail"
-					loading="lazy"
 					width="400px"
 					height="auto"
 				/>
