@@ -9,9 +9,7 @@
 			</h1>
 			<br>
 			<p class="text-3xl">
-				With this cutting edge search engine 
-				<br>
-				you can find any item, by putting your thoughts into text.
+				Find any item, by putting your thoughts in text.
 			</p>
 			
 		</div>

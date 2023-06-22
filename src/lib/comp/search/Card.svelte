@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { truncate } from '$lib/utils/funcs';
-	import {MoveRight} from 'lucide-svelte'
+	import {ExternalLink} from 'lucide-svelte'
 	import { copy } from 'svelte-copy';
 	import type { ToastSettings } from '@skeletonlabs/skeleton';	
 
@@ -57,13 +57,13 @@
 			<div class="flex justify-between items-center w-full">
 				<!-- Category -->
 				<div >
-					<small class="text-sm">Confidence: <br>	{product.similarity.toFixed(2)}</small>
+					<small class="text-sm text-gray-500">Confidence: <br>	{product.similarity.toFixed(2)}</small>
 					<!-- <small class="text-sm">{product.category}</small> -->
 				</div>
 				<a href="https://www.google.com/search?q={encodeURIComponent(product.name+" "+product.category)}" rel=”noopener” target="_blank">
 					<div class="flex justify-center items-center gap-1 text-primary-500">
 						<img src="/google.svg" alt="Google it" width="25" height="25">
-						<MoveRight />
+						<ExternalLink />
 					</div>
 				</a>
 			</div>
