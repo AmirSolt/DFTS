@@ -13,9 +13,9 @@
 </script>
 
 <svelte:head>
-	<title>DFTF - Describe it to Find it </title>
+	<title>Peeqq - Modern Description search</title>
 	<meta name="description" content="Describe any movie, game and tv show to find it. Using a full text search we can find your piece of media from our 1000's of movies, games and tv shows.">
-	<meta name="keywords" content="DFTF, Find movie, Find show, Find game, AI-powered, comparison, movie search, Search engine, AI search, movie, tv, video game, show, find,search">
+	<meta name="keywords" content="peeqq, Find movie, Find show, Find game, AI-powered, comparison, movie search, Search engine, AI search, movie, tv, video game, show, find,search">
 	<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 
 </svelte:head>

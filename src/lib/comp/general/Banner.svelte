@@ -4,7 +4,7 @@
 			<h1>
 				<span
 					class=" bg-gradient-to-r from-green-500 to-blue-400  box-decoration-clone bg-clip-text text-6xl font-bold text-transparent">
-					Deep Full Text Finder
+					Modern Description Search
 				</span>
 			</h1>
 			<br>
