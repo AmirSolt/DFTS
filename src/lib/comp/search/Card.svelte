@@ -47,7 +47,7 @@
 				<div >
 					<button 
 					use:copy={product.name} 
-					on:click={()=>navigator.vibrate(50)} 
+					on:click={()=>navigator.vibrate(15)} 
 					class="text-start text-base focus:text-tertiary-600 A Plague Tale: Requiem"
 					>{truncate(product.name, 34)}</button>
 				</div>

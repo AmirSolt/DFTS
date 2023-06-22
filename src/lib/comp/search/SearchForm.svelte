@@ -14,7 +14,7 @@
 
 
     function onSubmit(){
-        navigator.vibrate(50)
+        navigator.vibrate(15)
         isLoading=true;
     }
 
