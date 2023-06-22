@@ -4,14 +4,14 @@
 			<h1>
 				<span
 					class=" bg-gradient-to-r from-green-500 to-blue-400  box-decoration-clone bg-clip-text text-6xl font-bold text-transparent">
-					Modern Description Search
+					Modern Search Engine
 				</span>
 			</h1>
 			<br>
 			<p class="text-3xl">
 				With this cutting edge search engine 
 				<br>
-				you can find any item, by simply describing it.
+				you can find any item, by putting your thoughts into text.
 			</p>
 			
 		</div>

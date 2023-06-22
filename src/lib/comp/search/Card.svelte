@@ -24,7 +24,7 @@
 		<!-- Media -->
 		<div class="flex justify-center items-center">
 			<div
-				class="flex justify-center items-center w-40 h-40 sm:w-60 sm:h-60 p-1 sm:p-2 rounded-lg bg-white shadow-gray-800/90"
+				class="flex justify-center items-center w-36 h-36 sm:w-60 sm:h-60 p-1 sm:p-2 rounded-lg bg-gray-300 shadow-gray-800/90"
 			>
 				<img
 					class="max-w-full max-h-full rounded-lg"
@@ -57,12 +57,12 @@
 			<div class="flex justify-between items-center w-full">
 				<!-- Category -->
 				<div >
-					<small class="text-sm">Confidence: {product.similarity.toFixed(2)}</small>
-					<small class="text-sm">{product.category}</small>
+					<small class="text-sm">Confidence: <br>	{product.similarity.toFixed(2)}</small>
+					<!-- <small class="text-sm">{product.category}</small> -->
 				</div>
 				<a href="https://www.google.com/search?q={encodeURIComponent(product.name+" "+product.category)}" rel=”noopener” target="_blank">
 					<div class="flex justify-center items-center gap-1 text-primary-500">
-						Google it 
+						<img src="/google.svg" alt="Google it" width="25" height="25">
 						<MoveRight />
 					</div>
 				</a>
