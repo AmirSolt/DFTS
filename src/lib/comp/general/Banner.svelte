@@ -1,4 +1,4 @@
-<div class="my-5 md:my-16 flex flex-col justify-center items-center text-center gap-6 p-5">
+<div class="my-5 md:my-16 flex flex-col justify-center items-center text-center gap-3 sm:gap-6 p-2 sm:p-5">
 	<div class="flex flex-col justify-center items-center gap-6">
 		<div class="">
 			<h1>
@@ -14,9 +14,9 @@
 			
 		</div>
 		
-		<!-- <div class="w-50 h-50 md:w-72 md:h-72">
+		<div class="">
 			<img class="max-w-full max-h-full rounded-xl" src="/banner_image.svg" alt="">
-		</div> -->
+		</div>
 	</div>
 </div>
 
