@@ -44,7 +44,7 @@
                     <RadioItem bind:group={category} name="category" value={Category.show}>TV</RadioItem>
                 </RadioGroup>
 
-                <a href="{searchTerm.length==0? "" : `/search/${category.toLocaleLowerCase()}/${searchTerm}`}" class="btn w-1/2 variant-filled-primary"  on:click={onSubmit}>
+                <a href="{searchTerm.length==0? "" : `/search/${category.toLocaleLowerCase()}/${encodeURIComponent(searchTerm)}`}" class="btn w-1/2 variant-filled-primary"  on:click={onSubmit}>
                     <Search color={"#f9f9f9"} />
                 </a>
             </div>
