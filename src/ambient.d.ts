@@ -5,8 +5,8 @@
 
 
 interface Product {
+	title: string,
 	image_url: string
-	name: string,
 	category:string,
 	similarity:number
 }

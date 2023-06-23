@@ -15,7 +15,7 @@
 
 
 
-{#if product.name && product.image_url}
+{#if product.title && product.image_url}
 	<div
 		id="product_card"
 		class=" flex flex-col card drop-shadow-md !bg-transparent rounded-lg gap-4 p-2"
@@ -45,10 +45,10 @@
 				<!-- Name -->
 				<div >
 					<button 
-					use:copy={product.name} 
+					use:copy={product.title} 
 					on:click={()=>navigator.vibrate(15)} 
 					class="text-start text-base focus:text-tertiary-600 A Plague Tale: Requiem"
-					>{truncate(product.name, 34)}</button>
+					>{truncate(product.title, 34)}</button>
 				</div>
 
 			</div>
@@ -59,7 +59,7 @@
 					<small class="text-sm text-gray-500">Confidence: <br>	{product.similarity.toFixed(2)}</small>
 					<!-- <small class="text-sm">{product.category}</small> -->
 				</div>
-				<a href="https://www.google.com/search?q={encodeURIComponent(product.name+" "+product.category)}" rel=”noopener” target="_blank">
+				<a href="https://www.google.com/search?q={encodeURIComponent(product.title+" "+product.category)}" rel=”noopener” target="_blank">
 					<div class="flex justify-center items-center gap-1 text-primary-500">
 						<img src="/google.svg" alt="Google it" width="25" height="25">
 						<ExternalLink />

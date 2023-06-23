@@ -7,7 +7,7 @@ export const SEARCH_SIMILARITY_THRESH = 0.7
 
 
 export enum Category{
-    game="Game",
-    movie="Movie",
-    show="Show",
+    game="game",
+    movie="movie",
+    show="show",
 }

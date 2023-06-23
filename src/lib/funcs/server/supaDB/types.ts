@@ -9,30 +9,24 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      product: {
+      movies: {
         Row: {
-          category: string | null
-          fts: string | null
-          fts_content: string | null
+          embeddings: string | null
           id: number
-          image_url: string | null
-          name: string | null
+          image_id: string | null
+          title: string | null
         }
         Insert: {
-          category?: string | null
-          fts?: string | null
-          fts_content?: string | null
+          embeddings?: string | null
           id?: number
-          image_url?: string | null
-          name?: string | null
+          image_id?: string | null
+          title?: string | null
         }
         Update: {
-          category?: string | null
-          fts?: string | null
-          fts_content?: string | null
+          embeddings?: string | null
           id?: number
-          image_url?: string | null
-          name?: string | null
+          image_id?: string | null
+          title?: string | null
         }
         Relationships: []
       }
@@ -41,17 +35,15 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
-      search_products: {
+      search_movies: {
         Args: {
-          query_embedding: number[]
+          query_embedding: string
           match_threshold: number
-          input_category: string
           match_count: number
         }
         Returns: {
-          name: string
-          image_url: string
-          category: string
+          title: string
+          image_id: string
           similarity: number
         }[]
       }
