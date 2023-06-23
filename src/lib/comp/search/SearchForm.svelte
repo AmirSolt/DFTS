@@ -30,7 +30,7 @@
 <div class="my-5" >
 
     
-    <div class="flex w-full justify-center w-full "   bind:this={form} >
+    <form class="flex w-full justify-center w-full "  action="{`/search/${category}/${searchTerm}`}" bind:this={form} >
         <!-- <div class="input-group  max-w-2xl input-group-divider grid-cols-[1fr_auto] variant-ringed "> -->
             <div class="flex flex-col justify-center items-end w-full max-w-2xl gap-2">
                 <!-- <input type="hidden" name="category" value="{category}" />  -->
@@ -38,18 +38,20 @@
                 <textarea class="textarea w-full" rows="6" placeholder="Describe what you're looking for..." bind:value={searchTerm} autocomplete="off" />
                 
             <div class="flex flex-row justify-between items-center w-full gap-2">
+
                 <RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary" >
-                    <RadioItem bind:group={category} name="category" value={Category.game}>Game</RadioItem>
-                    <RadioItem bind:group={category} name="category" value={Category.movie}>Movie</RadioItem>
-                    <RadioItem bind:group={category} name="category" value={Category.show}>TV</RadioItem>
+                    <RadioItem bind:group={category} name="" value={Category.game}>Game</RadioItem>
+                    <RadioItem bind:group={category} name="" value={Category.movie}>Movie</RadioItem>
+                    <RadioItem bind:group={category} name="" value={Category.show}>TV</RadioItem>
                 </RadioGroup>
 
-                <a href="{searchTerm.length==0? "" : `/search/${category.toLocaleLowerCase()}/${encodeURIComponent(searchTerm)}`}" class="btn w-1/2 variant-filled-primary"  on:click={onSubmit}>
+                <button  class="btn w-1/2 variant-filled-primary"  on:click={onSubmit}  disabled="{searchTerm.length==0}">
                     <Search color={"#f9f9f9"} />
-                </a>
+                </button>
+
             </div>
         </div>
-    </div>
+    </form>
 </div>    
 
 

@@ -7,6 +7,7 @@ export const load = async ({params}) => {
     let {category, searchTerm} = params;
     // let category = url.searchParams.get('category');
 
+
     if(category===null)
         category = Category.movie
 
