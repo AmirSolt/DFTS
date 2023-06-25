@@ -16,7 +16,14 @@
           toastError(message)
     }
 
-    $: products, isLoading=false
+    let lastLoadedProduct: Product|null = null 
+    function checkForNewContent(){
+        let newValue = products? products[0] : null
+        if(lastLoadedProduct!=newValue){
+            isLoading=false
+        }
+    }
+    $: products, checkForNewContent()
 
 
 </script>
@@ -24,3 +31,4 @@
 <SearchForm {searchTerm} {category} bind:isLoading={isLoading} />
 
 <CardGrid products={products??[]} {category}  />
+

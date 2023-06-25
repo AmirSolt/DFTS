@@ -5,13 +5,20 @@
 
 	export let products:Product[] = [];
 	export let category:string;
+
+	function capitilize(word:string){
+		return word.charAt(0).toUpperCase()
+	+ word.slice(1)
+	}
+
+
 </script>
 
 
 
 
 <h1 class="text-5xl">
-	{category}s:
+	{capitilize(category)}s:
 </h1>
 
 <div class="my-5 w-full">
@@ -26,6 +33,7 @@
 				<Card {product} />	
 			{/each}
 		</div>
+		
 	{/if}
 
 </div>
