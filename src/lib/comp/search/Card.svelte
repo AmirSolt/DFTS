@@ -22,16 +22,14 @@
 	>
 
 		<!-- Media -->
-		<div class="flex justify-center items-center">
+		<div class="flex justify-center items-center w-full h-full">
 			<div
 				class="flex justify-center items-center w-36 h-54 sm:w-60 sm:h-90 p-2 rounded-lg bg-gray-800 shadow-gray-800/90"
 			>
 				<img
-					class="max-w-full max-h-full rounded-lg"
+					class="w-full h-full rounded-lg"
 					src={product.image_url}
 					alt="Thumbnail"
-					width="400px"
-					height="auto"
 				/>
 			</div>
 		</div>
