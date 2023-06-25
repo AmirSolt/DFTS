@@ -13,19 +13,16 @@ export interface Database {
         Row: {
           embeddings: string | null
           id: number
-          image_id: string | null
           title: string | null
         }
         Insert: {
           embeddings?: string | null
           id?: number
-          image_id?: string | null
           title?: string | null
         }
         Update: {
           embeddings?: string | null
           id?: number
-          image_id?: string | null
           title?: string | null
         }
         Relationships: []
@@ -42,8 +39,8 @@ export interface Database {
           match_count: number
         }
         Returns: {
+          id: number
           title: string
-          image_id: string
           similarity: number
         }[]
       }
