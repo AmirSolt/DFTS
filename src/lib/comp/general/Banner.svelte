@@ -7,12 +7,12 @@
 			<h1>
 				<span
 					class=" bg-gradient-to-r from-green-500 to-blue-400  box-decoration-clone bg-clip-text text-6xl font-bold text-transparent">
-					Modern Search Engine
+					Smart Movie Search Engine
 				</span>
 			</h1>
 			<br>
 			<p class="text-3xl">
-				Find any item, by putting your thoughts in text.
+				Find any movie, by putting your thoughts in text.
 			</p>
 			
 		</div>
