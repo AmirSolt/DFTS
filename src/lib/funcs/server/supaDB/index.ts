@@ -19,12 +19,9 @@ const supabase = ()=> createClient<Database>(
 
 
 
+
 export async function getSearch(searchTerm:string, category:string):Promise<Product[] | null>{
-    // const {data, error:err} = await supabase()
-    //     .textSearch('fts', searchTerm,
-    //         {type:"websearch",
-    //         config:"english"})
-    //     .limit(SEARCH_COUNT_LIMIT)
+
 
     if(searchTerm.length>SEARCH_INPUT_LIMIT){
         return []
@@ -33,12 +30,9 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
     const embedding = await AI.embedText(searchTerm)
 
 
-    let rpc_func:string = ""
-    if(category==Category.movie){
-        rpc_func = 'search_movies';
-    }
+    let categoryConfig:CategoryConfig = getCategoryConfig(category)
     
-    const { data, error:err } = await supabase().rpc(rpc_func, {
+    const { data, error:err } = await supabase().rpc(categoryConfig.rpc_func, {
         query_embedding: embedding,
         match_threshold: SEARCH_SIMILARITY_THRESH,
         match_count: SEARCH_COUNT_LIMIT, 
@@ -54,7 +48,7 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
     data.forEach(result=>{
         products.push({
             title:result.title,
-            image_url:result.image_id,
+            image_url: categoryConfig.image_dir_dist + result.image_id,
             similarity:result.similarity,
             category:category
         })
@@ -66,3 +60,20 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
 }
 
 
+
+
+
+function getCategoryConfig(category:string):CategoryConfig{
+    if(category==Category.movie){
+        return {
+            rpc_func:'search_movies',
+            image_dir_dist:'https://hksqypqduecqtjsconqx.supabase.co/storage/v1/object/public/thumbnail/movie/',
+        }
+    }
+
+
+    return {
+        rpc_func:'search_movies',
+        image_dir_dist:'https://hksqypqduecqtjsconqx.supabase.co/storage/v1/object/public/thumbnail/movie/',
+    }
+}
