@@ -35,7 +35,6 @@ export interface Database {
       search_movies: {
         Args: {
           query_embedding: string
-          match_threshold: number
           match_count: number
         }
         Returns: {

@@ -4,7 +4,7 @@ import type {Database} from './types'
 import {PUBLIC_SUPABASE_URL} from '$env/static/public';
 import {PRIVATE_SERVICE_ROLE_KEY_SUPABASE} from '$env/static/private';
 import { error } from '@sveltejs/kit';
-import {Category, SEARCH_COUNT_LIMIT, SEARCH_SIMILARITY_THRESH, SEARCH_INPUT_LIMIT} from "$lib/utils/config"
+import {Category, SEARCH_COUNT_LIMIT, SEARCH_INPUT_LIMIT} from "$lib/utils/config"
 import * as AI from "$lib/funcs/server/AI/index"
 
 // to generate types
@@ -34,7 +34,6 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
     
     const { data, error:err } = await supabase().rpc(categoryConfig.rpc_func, {
         query_embedding: embedding,
-        match_threshold: SEARCH_SIMILARITY_THRESH,
         match_count: SEARCH_COUNT_LIMIT, 
     })
 
