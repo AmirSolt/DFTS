@@ -9,7 +9,7 @@
         
     export let searchTerm:string = '';
     export let category:string = "" ;
-    export let isLoading:boolean = false;
+    let isLoading:boolean = false;
     let form;
 
 
@@ -20,6 +20,8 @@
 
         navigator.vibrate(15)
         isLoading=true;
+
+        setTimeout(()=>isLoading=false, 3000);
     }
 
     
