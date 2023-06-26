@@ -24,7 +24,7 @@
 		<!-- Media -->
 		<div class="flex justify-center items-center w-full h-full">
 			<div
-				class="flex justify-center items-center w-36 h-54 sm:w-60 sm:h-90 p-2 rounded-lg bg-gray-800 shadow-gray-800/90"
+				class="flex justify-center items-center w-36 h-54 sm:w-60 sm:h-90 rounded-lg bg-gray-800 shadow-gray-800/90"
 			>
 				<img
 					class="w-full h-full rounded-lg"
