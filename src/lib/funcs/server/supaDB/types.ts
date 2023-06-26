@@ -27,6 +27,30 @@ export interface Database {
         }
         Relationships: []
       }
+      searches: {
+        Row: {
+          category: string | null
+          created_at: string | null
+          id: number
+          result_ids: number[] | null
+          search_term: string | null
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string | null
+          id?: number
+          result_ids?: number[] | null
+          search_term?: string | null
+        }
+        Update: {
+          category?: string | null
+          created_at?: string | null
+          id?: number
+          result_ids?: number[] | null
+          search_term?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

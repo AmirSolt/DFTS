@@ -43,7 +43,11 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
         return null
     }
 
+
+
+    
     let products:Product[] = []
+    let resultIds:number[] = []
     data.forEach(result=>{
         products.push({
             title:result.title,
@@ -51,14 +55,14 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
             similarity:result.similarity,
             category:category
         })
+        resultIds.push(result.id)
     })
 
-
+    
+    saveSearch(searchTerm, resultIds, category)
 
     return products
 }
-
-
 
 
 
@@ -75,4 +79,13 @@ function getCategoryConfig(category:string):CategoryConfig{
         rpc_func:'search_movies',
         image_dir_dist:'https://hksqypqduecqtjsconqx.supabase.co/storage/v1/object/public/thumbnail/movie/',
     }
+}
+
+
+async function saveSearch(searchTerm:string, resultIds:number[], category:string){
+
+    const { data, error:err } = await supabase()
+        .from("searches")
+        .insert({search_term:searchTerm, result_ids:resultIds, category:category})
+        
 }
