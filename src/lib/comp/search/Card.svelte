@@ -53,10 +53,9 @@
 			
 			<div class="flex justify-between items-center w-full">
 				<!-- Category -->
-				<div >
+				<!-- <div >
 					<small class="text-sm text-gray-500">Confidence: <br>	{product.similarity.toFixed(2)}</small>
-					<!-- <small class="text-sm">{product.category}</small> -->
-				</div>
+				</div> -->
 				<a href="https://www.google.com/search?q={encodeURIComponent(product.title+" "+product.category)}" rel=”noopener” target="_blank">
 					<div class="flex justify-center items-center gap-1 text-primary-500">
 						<img src="/google.svg" alt="Google it" width="25" height="25">

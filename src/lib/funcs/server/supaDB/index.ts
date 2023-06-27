@@ -53,7 +53,6 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
         products.push({
             title:result.title,
             image_url: categoryConfig.image_dir_dist + result.id + IMAGE_TYPE,
-            similarity:result.similarity,
             category:category
         })
         resultIds.push(result.id)
