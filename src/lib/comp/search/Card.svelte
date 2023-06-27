@@ -48,7 +48,7 @@
 					class="flex justify-between items-between text-start text-base gap-2 focus:text-tertiary-600 w-full"
 					>
 					
-					<span class="w-36 h-12 text-md">{truncate(product.title, 34)}</span> 
+					<span class="w-36 h-12 text-md">{truncate(product.title, 28)}</span> 
 					<Copy size={16} />
 					</button>
 				</div>
@@ -58,8 +58,8 @@
 			<div class="flex justify-between items-center w-full">
 				<!-- Category -->
 				<div class="flex flex-col justify-start items-start w-full" >
-					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Word Similarity: {product.word_sim.toFixed(2)}</small>
-					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Vector Similarity: {product.vect_sim.toFixed(2)}</small>
+					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Word Similarity: {product.word_sim.toFixed(10)}</small>
+					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Vector Similarity: {product.vect_sim.toFixed(10)}</small>
 				</div>
 				<a href="https://www.google.com/search?q={encodeURIComponent(product.title+" "+product.category)}" rel=”noopener” target="_blank">
 					<div class="flex justify-center items-center gap-1 text-primary-500">

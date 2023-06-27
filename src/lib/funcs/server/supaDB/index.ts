@@ -34,7 +34,7 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
     let categoryConfig:CategoryConfig = getCategoryConfig(category)
     
     const { data, error:err } = await supabase().rpc(categoryConfig.rpc_func, {
-        query: searchTerm,
+        query: cleanSearchTermForSearch(searchTerm),
         query_embedding: embedding,
         match_count: SEARCH_RESULT_COUNT_LIMIT, 
     })
@@ -68,6 +68,10 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
 }
 
 
+function cleanSearchTermForSearch(searchTerm:string){
+    return searchTerm.replaceAll(" ", "|");
+
+}
 
 function getCategoryConfig(category:string):CategoryConfig{
     if(category==Category.movie){

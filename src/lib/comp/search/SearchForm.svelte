@@ -48,7 +48,7 @@
                 </RadioGroup> -->
                 <div></div>
 
-                <button  class="btn w-1/2 variant-filled-primary"  on:click={onSubmit}  disabled="{searchTerm.length==0}">
+                <button  class="btn w-1/2 variant-filled-primary "  on:click={onSubmit}  disabled="{searchTerm.length==0}">
                     <Search color={"#f9f9f9"} />
                 </button>
 
