@@ -33,6 +33,7 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
     let categoryConfig:CategoryConfig = getCategoryConfig(category)
     
     const { data, error:err } = await supabase().rpc(categoryConfig.rpc_func, {
+        query: searchTerm,
         query_embedding: embedding,
         match_count: SEARCH_COUNT_LIMIT, 
     })
