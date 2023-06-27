@@ -10,7 +10,7 @@
 	<div class="animate-pulse2 flex justify-center items-center gap-2 text-xl">
 		<ProgressRadial  width="w-12" stroke={100} />
 		<span></span>
-		<h1>Peeqq</h1>
+		<h1>peeqq</h1>
 	</div>
 
 </div>
