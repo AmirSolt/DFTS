@@ -9,6 +9,6 @@
 
 
 
-<SearchForm searchTerm={''} category={Category.game} />
+<SearchForm searchTerm={''} category={Category.movie} />
 
 <Banner />

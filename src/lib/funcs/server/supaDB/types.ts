@@ -9,30 +9,48 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      product: {
+      movies: {
+        Row: {
+          embeddings: string | null
+          id: number
+          summary: string | null
+          title: string | null
+        }
+        Insert: {
+          embeddings?: string | null
+          id?: number
+          summary?: string | null
+          title?: string | null
+        }
+        Update: {
+          embeddings?: string | null
+          id?: number
+          summary?: string | null
+          title?: string | null
+        }
+        Relationships: []
+      }
+      searches: {
         Row: {
           category: string | null
-          fts: string | null
-          fts_content: string | null
+          created_at: string | null
           id: number
-          image_url: string | null
-          name: string | null
+          result_ids: number[] | null
+          search_term: string | null
         }
         Insert: {
           category?: string | null
-          fts?: string | null
-          fts_content?: string | null
+          created_at?: string | null
           id?: number
-          image_url?: string | null
-          name?: string | null
+          result_ids?: number[] | null
+          search_term?: string | null
         }
         Update: {
           category?: string | null
-          fts?: string | null
-          fts_content?: string | null
+          created_at?: string | null
           id?: number
-          image_url?: string | null
-          name?: string | null
+          result_ids?: number[] | null
+          search_term?: string | null
         }
         Relationships: []
       }
@@ -41,18 +59,17 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
-      search_products: {
+      search_movies: {
         Args: {
-          query_embedding: number[]
-          match_threshold: number
-          input_category: string
+          query: string
+          query_embedding: string
           match_count: number
         }
         Returns: {
-          name: string
-          image_url: string
-          category: string
-          similarity: number
+          id: number
+          title: string
+          word_sim: number
+          vect_sim: number
         }[]
       }
     }

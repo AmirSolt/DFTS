@@ -5,11 +5,17 @@
 
 
 interface Product {
-	image_url: string
-	name: string,
+	title: string,
+	image_url: string,
 	category:string,
-	similarity:number
+	word_sim:number,
+	vect_sim:number,
 }
 
 
 
+interface CategoryConfig{
+	rpc_func:string,
+	image_dir_dist:string,
+
+}

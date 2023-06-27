@@ -9,7 +9,7 @@
         
     export let searchTerm:string = '';
     export let category:string = "" ;
-    export let isLoading:boolean = false;
+    let isLoading:boolean = false;
     let form;
 
 
@@ -20,6 +20,8 @@
 
         navigator.vibrate(15)
         isLoading=true;
+
+        setTimeout(()=>isLoading=false, 3000);
     }
 
     
@@ -35,15 +37,16 @@
             <div class="flex flex-col justify-center items-end w-full max-w-2xl gap-2">
                 <!-- <input type="hidden" name="category" value="{category}" />  -->
                 <!-- <input class="input ps-6 text-xl rounded-e-none" type="text" placeholder="Search..." bind:value={searchTerm} autocomplete="off" /> -->
-                <textarea class="textarea w-full" rows="6" placeholder="Describe what you're looking for..." bind:value={searchTerm} autocomplete="off" />
+                <textarea class="textarea w-full resize-none" rows="4" placeholder="Describe what you're looking for..." bind:value={searchTerm} autocomplete="off"  />
                 
             <div class="flex flex-row justify-between items-center w-full gap-2">
 
-                <RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary" >
+                <!-- <RadioGroup active="variant-filled-primary" hover="hover:variant-soft-primary" >
                     <RadioItem bind:group={category} name="" value={Category.game}>Game</RadioItem>
                     <RadioItem bind:group={category} name="" value={Category.movie}>Movie</RadioItem>
                     <RadioItem bind:group={category} name="" value={Category.show}>TV</RadioItem>
-                </RadioGroup>
+                </RadioGroup> -->
+                <div></div>
 
                 <button  class="btn w-1/2 variant-filled-primary"  on:click={onSubmit}  disabled="{searchTerm.length==0}">
                     <Search color={"#f9f9f9"} />
