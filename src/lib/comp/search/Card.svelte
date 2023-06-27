@@ -16,6 +16,12 @@
 
 
 {#if product.title && product.image_url}
+
+	<h1>
+		<!-- REMOVE -->
+		{product.sim}
+	</h1>
+
 	<div
 		id="product_card"
 		class=" flex flex-col card drop-shadow-md !bg-transparent rounded-lg gap-4 p-2"

@@ -51,6 +51,8 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
     let resultIds:number[] = []
     data.forEach(result=>{
         products.push({
+            // REMOVE
+            sim: result.similarity,
             title:result.title,
             image_url: categoryConfig.image_dir_dist + result.id + IMAGE_TYPE,
             category:category
