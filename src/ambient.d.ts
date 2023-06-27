@@ -8,6 +8,8 @@ interface Product {
 	title: string,
 	image_url: string,
 	category:string,
+	word_sim:number,
+	vect_sim:number,
 }
 
 

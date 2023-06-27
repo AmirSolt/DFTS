@@ -13,16 +13,19 @@ export interface Database {
         Row: {
           embeddings: string | null
           id: number
+          summary: string | null
           title: string | null
         }
         Insert: {
           embeddings?: string | null
           id?: number
+          summary?: string | null
           title?: string | null
         }
         Update: {
           embeddings?: string | null
           id?: number
+          summary?: string | null
           title?: string | null
         }
         Relationships: []
@@ -58,13 +61,15 @@ export interface Database {
     Functions: {
       search_movies: {
         Args: {
+          query: string
           query_embedding: string
           match_count: number
         }
         Returns: {
           id: number
           title: string
-          similarity: number
+          word_sim: number
+          vect_sim: number
         }[]
       }
     }

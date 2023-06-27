@@ -37,7 +37,7 @@
             <div class="flex flex-col justify-center items-end w-full max-w-2xl gap-2">
                 <!-- <input type="hidden" name="category" value="{category}" />  -->
                 <!-- <input class="input ps-6 text-xl rounded-e-none" type="text" placeholder="Search..." bind:value={searchTerm} autocomplete="off" /> -->
-                <textarea class="textarea w-full" rows="4" placeholder="Describe what you're looking for..." bind:value={searchTerm} autocomplete="off" />
+                <textarea class="textarea w-full resize-none" rows="4" placeholder="Describe what you're looking for..." bind:value={searchTerm} autocomplete="off"  />
                 
             <div class="flex flex-row justify-between items-center w-full gap-2">
 
