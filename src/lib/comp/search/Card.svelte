@@ -24,7 +24,7 @@
 		<!-- Media -->
 		<div class="flex justify-center items-center w-full h-full">
 			<div
-				class="flex justify-center items-center w-36 h-54 sm:w-60 sm:h-90 rounded-lg bg-gray-800 shadow-gray-800/90"
+				class="flex justify-center items-center w-36 h-54 sm:w-48 sm:h-72 rounded-lg bg-gray-800 shadow-gray-800/90"
 			>
 				<img
 					class="w-full h-full rounded-lg"
@@ -58,8 +58,8 @@
 			<div class="flex justify-between items-center w-full">
 				<!-- Category -->
 				<div class="flex flex-col justify-start items-start w-full" >
-					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Word Similarity: {product.word_sim.toFixed(3)}</small>
-					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Semantic Similarity: {product.vect_sim.toFixed(3)}</small>
+					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Word Sim: {product.word_sim.toFixed(3)}</small>
+					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Semantic Sim: {product.vect_sim.toFixed(3)}</small>
 				</div>
 				<a href="https://www.google.com/search?q={encodeURIComponent(product.title+" "+product.category)}" rel=”noopener” target="_blank">
 					<div class="flex justify-center items-center gap-1 text-primary-500">
