@@ -9,35 +9,38 @@
         
     export let searchTerm:string = '';
     export let category:string = "" ;
-    let isLoading:boolean = false;
+    export let isLoading:boolean = false;
     let form;
 
 
-    function onSubmit(){
+    function submit(){
         if(searchTerm.length==0){
             return false
         }
 
         navigator.vibrate(15)
         isLoading=true;
-
-        setTimeout(()=>isLoading=false, 3000);
+        form.submit()
     }
 
-    
-
+    function onKeyDown(e) {
+		if(e.keyCode === 13){
+            submit()
+        }
+	}
+	
 </script>
 
 
 <div class="my-5" >
 
     
-    <form class="flex w-full justify-center w-full "  action="{`/search/${category}/${searchTerm}`}" bind:this={form} >
+    <form id="search-form" class="flex w-full justify-center w-full "  action="{`/search/${category}/${searchTerm}`}" bind:this={form}  >
         <!-- <div class="input-group  max-w-2xl input-group-divider grid-cols-[1fr_auto] variant-ringed "> -->
             <div class="flex flex-col justify-center items-end w-full max-w-2xl gap-2">
                 <!-- <input type="hidden" name="category" value="{category}" />  -->
                 <!-- <input class="input ps-6 text-xl rounded-e-none" type="text" placeholder="Search..." bind:value={searchTerm} autocomplete="off" /> -->
-                <textarea class="textarea w-full resize-none" rows="4" placeholder="Describe what you're looking for..." bind:value={searchTerm} autocomplete="off"  />
+                <textarea class="textarea w-full resize-none" rows="3" placeholder="Describe what you're looking for..." bind:value={searchTerm} autocomplete="off" on:keydown={onKeyDown}  />
                 
             <div class="flex flex-row justify-between items-center w-full gap-2">
 
@@ -48,7 +51,7 @@
                 </RadioGroup> -->
                 <div></div>
 
-                <button  class="btn w-1/2 variant-filled-primary "  on:click={onSubmit}  disabled="{searchTerm.length==0}">
+                <button type="button" class="btn w-1/2 variant-filled-primary "  on:click={submit}  disabled="{searchTerm.length==0}">
                     <Search color={"#f9f9f9"} />
                 </button>
 
