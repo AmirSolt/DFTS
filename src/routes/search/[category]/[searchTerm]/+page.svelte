@@ -4,10 +4,10 @@
     import CardGrid from "$lib/comp/search/CardGrid.svelte";
     import {toastError} from '$lib/utils/toast'
 
+    let isLoading:boolean = false;
     export let data;
 
     $: ({ searchTerm, category, products } = data);
-
 
 
     if (products === null) {
@@ -27,7 +27,7 @@
 
 </script>
 
-<SearchForm {searchTerm} {category}  />
+<SearchForm {searchTerm} {category} bind:isLoading={isLoading}  />
 
-<CardGrid products={products??[]} {category}  />
+<CardGrid products={products??[]} {category} on:ready={()=>isLoading=false} />
 

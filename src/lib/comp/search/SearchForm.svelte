@@ -9,28 +9,23 @@
         
     export let searchTerm:string = '';
     export let category:string = "" ;
-    let isLoading:boolean = false;
+    export let isLoading:boolean = false;
     let form;
 
 
-    function onSubmit(){
+    function submit(){
         if(searchTerm.length==0){
             return false
         }
 
         navigator.vibrate(15)
         isLoading=true;
-
-        setTimeout(()=>isLoading=false, 3000);
-
-        
-
+        form.submit()
     }
 
     function onKeyDown(e) {
 		if(e.keyCode === 13){
-            onSubmit()
-            document.getElementById("search-form").submit()
+            submit()
         }
 	}
 	
@@ -56,7 +51,7 @@
                 </RadioGroup> -->
                 <div></div>
 
-                <button  class="btn w-1/2 variant-filled-primary "  on:click={onSubmit}  disabled="{searchTerm.length==0}">
+                <button type="button" class="btn w-1/2 variant-filled-primary "  on:click={submit}  disabled="{searchTerm.length==0}">
                     <Search color={"#f9f9f9"} />
                 </button>
 
