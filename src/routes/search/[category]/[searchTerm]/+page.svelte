@@ -14,17 +14,6 @@
       const message = 'Sorry, could not get the results!';
           toastError(message)
     }
-
-    // let lastLoadedProduct: Product|null = null 
-    // function checkForNewContent(){
-    //     let newValue = products? products[0] : null
-    //     if(lastLoadedProduct!=newValue){
-    //         isLoading=false
-    //     }
-    // }
-    // $: products, checkForNewContent()
-
-
 </script>
 
 <SearchForm {searchTerm} {category} bind:isLoading={isLoading}  />

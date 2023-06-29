@@ -10,7 +10,6 @@ export const load = async ({params}) => {
     if(category===null)
         category = Category.movie
     
-    category = category.charAt(0).toUpperCase() + category.slice(1);
 
 
     let products:Product[]|null = await getSearch(searchTerm, category)

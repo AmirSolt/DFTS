@@ -4,6 +4,7 @@ import type {Database} from './types'
 import {PUBLIC_SUPABASE_URL} from '$env/static/public';
 import {PRIVATE_SERVICE_ROLE_KEY_SUPABASE} from '$env/static/private';
 import {Category, SEARCH_RESULT_COUNT_LIMIT, SEARCH_INPUT_LIMIT} from "$lib/utils/config"
+import * as sw from 'stopword'
 import { toastError } from '$lib/utils/toast';
 import * as AI from "$lib/funcs/server/AI/index"
 
@@ -28,13 +29,16 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
         return []
     }
 
+
+    const cleanSearchTerm = cleanSearchTermForSearch(searchTerm);
+
     const embedding = await AI.embedText(searchTerm)
 
 
     let categoryConfig:CategoryConfig = getCategoryConfig(category)
     
     const { data, error:err } = await supabase().rpc(categoryConfig.rpc_func, {
-        query: cleanSearchTermForSearch(searchTerm),
+        query: cleanSearchTerm,
         query_embedding: embedding,
         match_count: SEARCH_RESULT_COUNT_LIMIT, 
     })
@@ -53,6 +57,7 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
     data.forEach(result=>{
         products.push({
             title:result.title,
+            year:result.year,
             image_url: categoryConfig.image_dir_dist + result.id + IMAGE_TYPE,
             category:category,
             word_sim:result.word_sim,
@@ -68,9 +73,16 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
 }
 
 
-function cleanSearchTermForSearch(searchTerm:string){
-    return searchTerm.replaceAll(" ", "|");
 
+function stopWordRemover(text:string){
+    return sw.removeStopwords(text.split(" ")).join(" ")
+}
+
+function cleanSearchTermForSearch(searchTerm:string){
+    let query = searchTerm;
+    query = stopWordRemover(query)
+    query = query.replaceAll(" ", "|");
+    return query
 }
 
 function getCategoryConfig(category:string):CategoryConfig{

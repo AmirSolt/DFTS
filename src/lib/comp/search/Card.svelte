@@ -43,7 +43,7 @@
 				<!-- Name -->
 				<div class="w-full" >
 					<button 
-					use:copy={product.title} 
+					use:copy={product.title}  
 					on:click={()=>navigator.vibrate(15)} 
 					class="flex justify-between items-between text-start text-base gap-2 focus:text-tertiary-600 w-full"
 					>
@@ -61,7 +61,9 @@
 					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Word Sim: {product.word_sim.toFixed(3)}</small>
 					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Semantic Sim: {product.vect_sim.toFixed(3)}</small>
 				</div>
-				<a href="https://www.google.com/search?q={encodeURIComponent(product.title+" "+product.category)}" rel=”noopener” target="_blank">
+
+				<!-- title (year) category -->
+				<a href="https://www.google.com/search?q={encodeURIComponent(product.title + product.year?` (${product.year})`:"" + " " + product.category )}" rel=”noopener” target="_blank">
 					<div class="flex justify-center items-center gap-1 text-primary-500">
 						<img src="/google.svg" alt="Google it" width="25" height="25">
 						<ExternalLink />
