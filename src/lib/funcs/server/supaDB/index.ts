@@ -19,9 +19,13 @@ const supabase = ()=> createClient<Database>(
 
 
 const IMAGE_TYPE = ".webp"
+const get_image_url = (category:string, id:string) => 'https://hksqypqduecqtjsconqx.supabase.co/storage/v1/object/public/thumbnail/'+category+"/"+id+IMAGE_TYPE
+const DEBUG_SIGN = "@@@"
 
 
 export async function getSearch(searchTerm:string, category:string):Promise<Product[] | null>{
+
+    let isDebug:boolean = false;
 
 
     if(searchTerm.length>SEARCH_INPUT_LIMIT){
@@ -30,16 +34,17 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
     }
 
 
-    const cleanSearchTerm = cleanSearchTermForSearch(searchTerm);
+    [isDebug, searchTerm] = checkDebug(searchTerm)
 
+    const cleanSearchTerm = cleanSearchTermForSearch(searchTerm);
     const embedding = await AI.embedText(searchTerm)
 
 
-    let categoryConfig:CategoryConfig = getCategoryConfig(category)
     
-    const { data, error:err } = await supabase().rpc(categoryConfig.rpc_func, {
+    const { data, error:err } = await supabase().rpc('search', {
         query: cleanSearchTerm,
         query_embedding: embedding,
+        query_category:category,
         match_count: SEARCH_RESULT_COUNT_LIMIT, 
     })
 
@@ -58,7 +63,7 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
         products.push({
             title:result.title,
             year:result.year,
-            image_url: categoryConfig.image_dir_dist + result.id + IMAGE_TYPE,
+            image_url: get_image_url(category, result.id),
             category:category,
             word_sim:result.word_sim,
             vect_sim:result.vect_sim,
@@ -67,7 +72,9 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
     })
 
     
-    saveSearch(searchTerm, resultIds, category)
+
+    if(!isDebug)
+        saveSearch(searchTerm, resultIds, category)
 
     return products
 }
@@ -85,19 +92,12 @@ function cleanSearchTermForSearch(searchTerm:string){
     return query
 }
 
-function getCategoryConfig(category:string):CategoryConfig{
-    if(category==Category.movie){
-        return {
-            rpc_func:'search_movies',
-            image_dir_dist:'https://hksqypqduecqtjsconqx.supabase.co/storage/v1/object/public/thumbnail/movie/',
-        }
+function checkDebug(searchTerm:string):[boolean, string]{
+    if(searchTerm.includes(DEBUG_SIGN)){
+        return [true, searchTerm.replace(DEBUG_SIGN, "")]
     }
 
-
-    return {
-        rpc_func:'search_movies',
-        image_dir_dist:'https://hksqypqduecqtjsconqx.supabase.co/storage/v1/object/public/thumbnail/movie/',
-    }
+    return [false, searchTerm]
 }
 
 

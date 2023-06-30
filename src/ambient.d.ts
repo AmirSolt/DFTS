@@ -15,8 +15,3 @@ interface Product {
 
 
 
-interface CategoryConfig{
-	rpc_func:string,
-	image_dir_dist:string,
-
-}
