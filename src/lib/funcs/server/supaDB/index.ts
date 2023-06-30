@@ -19,7 +19,7 @@ const supabase = ()=> createClient<Database>(
 
 
 const IMAGE_TYPE = ".webp"
-const get_image_url = (category:string, id:string) => 'https://hksqypqduecqtjsconqx.supabase.co/storage/v1/object/public/thumbnail/'+category+"/"+id+IMAGE_TYPE
+const get_image_url = (category:string, id:string) => 'https://ddoglkflgnvvhckqlvfx.supabase.co/storage/v1/object/public/thumbnail/'+category+"/"+id+IMAGE_TYPE
 const DEBUG_SIGN = "@@@"
 
 
