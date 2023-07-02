@@ -56,14 +56,14 @@
 			</div>
 			
 			<div class="flex justify-between items-center w-full">
-				<!-- Category -->
-				<div class="flex flex-col justify-start items-start w-full" >
+				<!-- DETAILS -->
+				<!-- <div class="flex flex-col justify-start items-start w-full" >
 					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Word Sim: {product.word_sim.toFixed(3)}</small>
 					<small class="leading-4 text-gray-500" style="font-size:x-small;" >Semantic Sim: {product.vect_sim.toFixed(3)}</small>
-				</div>
+				</div> -->
 
 				<!-- title (year) category -->
-				<a href="https://www.google.com/search?q={encodeURIComponent(product.title + product.year?` (${product.year})`:"" + " " + product.category )}" rel=”noopener” target="_blank">
+				<a href="https://www.google.com/search?q={encodeURIComponent(`${product.title} ${product.year??''} ${product.category}`)}" rel=”noopener” target="_blank">
 					<div class="flex justify-center items-center gap-1 text-primary-500">
 						<img src="/google.svg" alt="Google it" width="25" height="25">
 						<ExternalLink />

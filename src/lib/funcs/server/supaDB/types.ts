@@ -9,24 +9,33 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      movies: {
+      products: {
         Row: {
-          embeddings: string | null
-          id: number
-          summary: string | null
+          category: string | null
+          id: string
+          keywords_flat: string | null
+          keywords_vect: unknown | null
+          overview_vect: string | null
           title: string | null
+          year: string | null
         }
         Insert: {
-          embeddings?: string | null
-          id?: number
-          summary?: string | null
+          category?: string | null
+          id: string
+          keywords_flat?: string | null
+          keywords_vect?: unknown | null
+          overview_vect?: string | null
           title?: string | null
+          year?: string | null
         }
         Update: {
-          embeddings?: string | null
-          id?: number
-          summary?: string | null
+          category?: string | null
+          id?: string
+          keywords_flat?: string | null
+          keywords_vect?: unknown | null
+          overview_vect?: string | null
           title?: string | null
+          year?: string | null
         }
         Relationships: []
       }
@@ -35,21 +44,21 @@ export interface Database {
           category: string | null
           created_at: string | null
           id: number
-          result_ids: number[] | null
+          result_ids: string[] | null
           search_term: string | null
         }
         Insert: {
           category?: string | null
           created_at?: string | null
           id?: number
-          result_ids?: number[] | null
+          result_ids?: string[] | null
           search_term?: string | null
         }
         Update: {
           category?: string | null
           created_at?: string | null
           id?: number
-          result_ids?: number[] | null
+          result_ids?: string[] | null
           search_term?: string | null
         }
         Relationships: []
@@ -59,17 +68,29 @@ export interface Database {
       [_ in never]: never
     }
     Functions: {
-      search_movies: {
+      get_uploaded_images: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          name: string
+        }[]
+      }
+      get_used_ids: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          id: string
+        }[]
+      }
+      search: {
         Args: {
           query: string
           query_embedding: string
+          query_category: string
           match_count: number
         }
         Returns: {
-          id: number
+          id: string
           title: string
-          word_sim: number
-          vect_sim: number
+          year: string
         }[]
       }
     }

@@ -9,7 +9,7 @@ import { toastError } from '$lib/utils/toast';
 import * as AI from "$lib/funcs/server/AI/index"
 
 // to generate types
-// npx supabase gen types typescript --project-id "hksqypqduecqtjsconqx" --schema public > ./src/lib/funcs/server/supaDB/types.ts
+// npx supabase gen types typescript --project-id "ddoglkflgnvvhckqlvfx" --schema public > ./src/lib/funcs/server/supaDB/types.ts
 
 const supabase = ()=> createClient<Database>(
     PUBLIC_SUPABASE_URL,
@@ -58,15 +58,13 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
 
     
     let products:Product[] = []
-    let resultIds:number[] = []
+    let resultIds:string[] = []
     data.forEach(result=>{
         products.push({
             title:result.title,
             year:result.year,
             image_url: get_image_url(category, result.id),
             category:category,
-            word_sim:result.word_sim,
-            vect_sim:result.vect_sim,
         })
         resultIds.push(result.id)
     })
@@ -101,7 +99,7 @@ function checkDebug(searchTerm:string):[boolean, string]{
 }
 
 
-async function saveSearch(searchTerm:string, resultIds:number[], category:string){
+async function saveSearch(searchTerm:string, resultIds:string[], category:string){
 
     const { data, error:err } = await supabase()
         .from("searches")
