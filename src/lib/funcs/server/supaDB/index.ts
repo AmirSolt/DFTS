@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js'
 import type {Database} from './types'
 import {PUBLIC_SUPABASE_URL} from '$env/static/public';
 import {PRIVATE_SERVICE_ROLE_KEY_SUPABASE} from '$env/static/private';
-import {Category, SEARCH_RESULT_COUNT_LIMIT, SEARCH_INPUT_LIMIT} from "$lib/utils/config"
+import {Category, SEARCH_INPUT_LIMIT} from "$lib/utils/config"
 import * as sw from 'stopword'
 import { toastError } from '$lib/utils/toast';
 import * as AI from "$lib/funcs/server/AI/index"
@@ -45,7 +45,6 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
         query: cleanSearchTerm,
         query_embedding: embedding,
         query_category:category,
-        match_count: SEARCH_RESULT_COUNT_LIMIT, 
     })
 
 

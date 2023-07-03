@@ -85,7 +85,6 @@ export interface Database {
           query: string
           query_embedding: string
           query_category: string
-          match_count: number
         }
         Returns: {
           id: string
