@@ -22,7 +22,7 @@
 
         <div class="flex flex-col justify-center items-end w-full max-w-2xl gap-2">
 
-            <input class="input my-2 p-3 rounded-md" type="text" name="searchTerm" value={searchTerm} placeholder="e.g. similar to godfather | action thriller bruce willis" required />
+            <input class="input my-2 p-3 rounded-md" type="text" name="searchTerm" value={searchTerm} placeholder="e.g. similar to godfather | action thriller bruce willis" autocomplete="off" required />
 
 
             <div class="flex flex-row justify-between items-center w-full gap-2">
