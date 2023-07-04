@@ -4,7 +4,6 @@ import type {Database} from './types'
 import {PUBLIC_SUPABASE_URL} from '$env/static/public';
 import {PRIVATE_SERVICE_ROLE_KEY_SUPABASE} from '$env/static/private';
 import {Category, SEARCH_INPUT_LIMIT} from "$lib/utils/config"
-import * as sw from 'stopword'
 import { toastError } from '$lib/utils/toast';
 import * as AI from "$lib/funcs/server/AI/index"
 
@@ -36,13 +35,12 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
 
     [isDebug, searchTerm] = checkDebug(searchTerm)
 
-    const cleanSearchTerm = cleanSearchTermForSearch(searchTerm);
     const embedding = await AI.embedText(searchTerm)
 
 
     
     const { data, error:err } = await supabase().rpc('search', {
-        query: cleanSearchTerm,
+        query: searchTerm,
         query_embedding: embedding,
         query_category:category,
     })
@@ -77,17 +75,6 @@ export async function getSearch(searchTerm:string, category:string):Promise<Prod
 }
 
 
-
-function stopWordRemover(text:string){
-    return sw.removeStopwords(text.split(" ")).join(" ")
-}
-
-function cleanSearchTermForSearch(searchTerm:string){
-    let query = searchTerm;
-    query = stopWordRemover(query)
-    query = query.replaceAll(" ", "|");
-    return query
-}
 
 function checkDebug(searchTerm:string):[boolean, string]{
     if(searchTerm.includes(DEBUG_SIGN)){

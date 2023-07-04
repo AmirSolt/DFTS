@@ -19,6 +19,17 @@
 	<link rel="icon" type="image/svg+xml" href="/logo.svg" />
 
 
+
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJ74RTT8K3"></script>
+	<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-GJ74RTT8K3');
+	</script>
+
 	<!-- Hotjar Tracking Code for https://www.peeqq.com/ -->
 	<script>
 		(function(h,o,t,j,a,r){
